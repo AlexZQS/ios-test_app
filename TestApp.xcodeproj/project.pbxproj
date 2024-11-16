@@ -14,7 +14,7 @@
 		4F2CD7C32C9ABB44004741A3 /* MessageViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2CD7C22C9ABB44004741A3 /* MessageViewCell.swift */; };
 		4F3610AB2CAAAC96007C05ED /* AnimationMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3610AA2CAAAC96007C05ED /* AnimationMainViewController.swift */; };
 		4F6E7EE32CE76A5700EA7D20 /* OtherMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6E7EE22CE76A5700EA7D20 /* OtherMainViewController.swift */; };
-		4F6E7EE52CE76BAF00EA7D20 /* FileOperationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6E7EE42CE76BAF00EA7D20 /* FileOperationViewController.swift */; };
+		4F6E7EE52CE76BAF00EA7D20 /* ImageOptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6E7EE42CE76BAF00EA7D20 /* ImageOptViewController.swift */; };
 		4F7B91892C831DF5007BC6C5 /* DelegateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7B91882C831DF5007BC6C5 /* DelegateManager.swift */; };
 		4F7B918C2C831FB0007BC6C5 /* MessageDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7B918B2C831FB0007BC6C5 /* MessageDelegate.swift */; };
 		4F7B918E2C831FBD007BC6C5 /* MessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7B918D2C831FBD007BC6C5 /* MessageModel.swift */; };
@@ -85,6 +85,7 @@
 		4FDB6D442C26DD81003A978D /* SnapKitViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDB6D432C26DD81003A978D /* SnapKitViewController2.swift */; };
 		4FDC639B2CB0570E0031A614 /* CALayerBasicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDC639A2CB0570E0031A614 /* CALayerBasicViewController.swift */; };
 		4FDC639D2CB56C640031A614 /* CALayerCoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDC639C2CB56C640031A614 /* CALayerCoreViewController.swift */; };
+		4FE39AE92CE87C0400153BFA /* FileOptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE39AE82CE87C0400153BFA /* FileOptViewController.swift */; };
 		4FF25DC32CD1DD5A00F44828 /* TaskQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF25DC22CD1DD5A00F44828 /* TaskQueue.swift */; };
 		8D7D812802DCFBBDE6291CE1 /* Pods_TestApp_TestAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8B0AADF83D5ECAD1407B2B1 /* Pods_TestApp_TestAppUITests.framework */; };
 		92D5FF79A2A9CA661489918E /* Pods_TestAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 708F8A4326B962DF88B9E7DD /* Pods_TestAppTests.framework */; };
@@ -117,7 +118,7 @@
 		4F2CD7C22C9ABB44004741A3 /* MessageViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewCell.swift; sourceTree = "<group>"; };
 		4F3610AA2CAAAC96007C05ED /* AnimationMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationMainViewController.swift; sourceTree = "<group>"; };
 		4F6E7EE22CE76A5700EA7D20 /* OtherMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherMainViewController.swift; sourceTree = "<group>"; };
-		4F6E7EE42CE76BAF00EA7D20 /* FileOperationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileOperationViewController.swift; sourceTree = "<group>"; };
+		4F6E7EE42CE76BAF00EA7D20 /* ImageOptViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageOptViewController.swift; sourceTree = "<group>"; };
 		4F7B91882C831DF5007BC6C5 /* DelegateManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DelegateManager.swift; sourceTree = "<group>"; };
 		4F7B918B2C831FB0007BC6C5 /* MessageDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageDelegate.swift; sourceTree = "<group>"; };
 		4F7B918D2C831FBD007BC6C5 /* MessageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageModel.swift; sourceTree = "<group>"; };
@@ -193,6 +194,7 @@
 		4FDB6D432C26DD81003A978D /* SnapKitViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapKitViewController2.swift; sourceTree = "<group>"; };
 		4FDC639A2CB0570E0031A614 /* CALayerBasicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CALayerBasicViewController.swift; sourceTree = "<group>"; };
 		4FDC639C2CB56C640031A614 /* CALayerCoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CALayerCoreViewController.swift; sourceTree = "<group>"; };
+		4FE39AE82CE87C0400153BFA /* FileOptViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileOptViewController.swift; sourceTree = "<group>"; };
 		4FF25DC22CD1DD5A00F44828 /* TaskQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskQueue.swift; sourceTree = "<group>"; };
 		708F8A4326B962DF88B9E7DD /* Pods_TestAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TestAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E496B01821B833559A820ED /* Pods-TestAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestAppTests.debug.xcconfig"; path = "Target Support Files/Pods-TestAppTests/Pods-TestAppTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -266,8 +268,9 @@
 		4F6E7EE12CE76A2600EA7D20 /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				4FE39AE82CE87C0400153BFA /* FileOptViewController.swift */,
 				4F6E7EE22CE76A5700EA7D20 /* OtherMainViewController.swift */,
-				4F6E7EE42CE76BAF00EA7D20 /* FileOperationViewController.swift */,
+				4F6E7EE42CE76BAF00EA7D20 /* ImageOptViewController.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -788,6 +791,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4FE39AE92CE87C0400153BFA /* FileOptViewController.swift in Sources */,
 				4FDB6CD92C19B949003A978D /* TestCoroutineViewController.swift in Sources */,
 				4FDB6CD52C189F78003A978D /* UITableCustomCellViewController.swift in Sources */,
 				4FDB6D112C1DFE35003A978D /* UIScrollViewController2.swift in Sources */,
@@ -809,7 +813,7 @@
 				4FDB6CC52C15FBC2003A978D /* TableViewController.swift in Sources */,
 				4FA347192C09D50300FB8C99 /* AppDelegate.swift in Sources */,
 				4FDB6C9A2C137555003A978D /* StudentModel.swift in Sources */,
-				4F6E7EE52CE76BAF00EA7D20 /* FileOperationViewController.swift in Sources */,
+				4F6E7EE52CE76BAF00EA7D20 /* ImageOptViewController.swift in Sources */,
 				4FDC639D2CB56C640031A614 /* CALayerCoreViewController.swift in Sources */,
 				4FDB6D0D2C1DB165003A978D /* MainScrollViewController.swift in Sources */,
 				4FDB6C952C13107E003A978D /* TestDBViewController.swift in Sources */,
@@ -1027,7 +1031,9 @@
 				ENABLE_APP_SANDBOX = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "TestApp/Info-Debug.plist";
+				INFOPLIST_KEY_NSCameraUsageDescription = "需要您的同意才能使用手机拍照功能";
 				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Allow flutter tools to connect to your application";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "需要您的同意才能访问手机相册";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -1039,7 +1045,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.app.testApp213;
+				PRODUCT_BUNDLE_IDENTIFIER = com.app.testApp214;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1062,7 +1068,9 @@
 				ENABLE_APP_SANDBOX = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "TestApp/Info-Release.plist";
+				INFOPLIST_KEY_NSCameraUsageDescription = "需要您的同意才能使用手机拍照功能";
 				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Allow flutter tools to connect to your application";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "需要您的同意才能访问手机相册";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -1074,7 +1082,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.app.testApp213;
+				PRODUCT_BUNDLE_IDENTIFIER = com.app.testApp214;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;

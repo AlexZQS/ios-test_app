@@ -19,14 +19,38 @@ class OtherMainViewController: BaseViewController {
         return stackView
     }()
     
-    lazy var fileButton: UIButton = {
+    lazy var btnFileOpt: UIButton = {
         
-        var button1 = UIButton(type: .roundedRect)
-//        var button = UIButton(configuration: .filled(),primaryAction: UIAction(title: "CALayer Animation",handler: { _ in
-//            let vc = CALayerBasicViewController()
-//            self.navigationController?.pushViewController(vc, animated: true)
-//        }))
-        return button1
+        
+        if #available(iOS 15.0, *) {
+            var button = UIButton(configuration: .filled(),primaryAction: UIAction(title: "文件操作",handler: { _ in
+                let vc = FileOptViewController()
+                self.navigationController?.pushViewController(vc, animated: true)
+            }))
+            return button
+        } else {
+            // Fallback on earlier versions
+            var button1 = UIButton(type: .roundedRect)
+            button1.backgroundColor = UIColor.systemBlue
+            return button1
+        }
+    }()
+    
+    lazy var btnImageOpt: UIButton = {
+        
+        
+        if #available(iOS 15.0, *) {
+            var button = UIButton(configuration: .filled(),primaryAction: UIAction(title: "图片操作",handler: { _ in
+                let vc = ImageOptViewController()
+                self.navigationController?.pushViewController(vc, animated: true)
+            }))
+            return button
+        } else {
+            // Fallback on earlier versions
+            var button1 = UIButton(type: .roundedRect)
+            button1.backgroundColor = UIColor.systemBlue
+            return button1
+        }
     }()
     
 
@@ -37,12 +61,21 @@ class OtherMainViewController: BaseViewController {
         self.navigationItem.title = "其他"
         self.view.addSubview(stackView)
         stackView.snp.makeConstraints { make in
-            make.top.equalTo(self.view.snp_topMargin)
-            make.left.right.equalTo(self.view)
-            make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom)
+//            make.top.equalTo(self.view.snp_topMargin)
+//            make.left.right.equalTo(self.view)
+//            make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom)
+            make.center.equalToSuperview()
         }
         
-        stackView.addArrangedSubview(fileButton)
+        stackView.addArrangedSubview(btnImageOpt)
+        btnImageOpt.snp.makeConstraints { make in
+            make.size.equalTo(CGSize(width: 200, height: 50))
+        }
+        
+        stackView.addArrangedSubview(btnFileOpt)
+        btnFileOpt.snp.makeConstraints { make in
+            make.size.equalTo(CGSize(width: 200, height: 50))
+        }
         
     }
     

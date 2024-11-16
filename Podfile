@@ -13,6 +13,7 @@ target 'TestApp' do
   # Pods for TestApp
   pod 'WCDB.swift'
   pod 'SnapKit', '~> 5.7.0'
+  pod 'TZImagePickerController'
 #  install_all_flutter_pods(flutter_application_path)
 
   target 'TestAppTests' do
