@@ -40,11 +40,15 @@ class MainViewController: BaseViewController {
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
+    @IBAction func webPage(_ sender: Any) {
+        let vc = UrlViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return  }
-        appDelegate.delegateManager.registerMessageDelegate(delegate: self)
+//        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return  }
+//        appDelegate.delegateManager.registerMessageDelegate(delegate: self)
         // Do any additional setup after loading the view.
     }
 

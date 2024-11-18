@@ -15,6 +15,8 @@
 		4F3610AB2CAAAC96007C05ED /* AnimationMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3610AA2CAAAC96007C05ED /* AnimationMainViewController.swift */; };
 		4F6E7EE32CE76A5700EA7D20 /* OtherMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6E7EE22CE76A5700EA7D20 /* OtherMainViewController.swift */; };
 		4F6E7EE52CE76BAF00EA7D20 /* ImageOptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6E7EE42CE76BAF00EA7D20 /* ImageOptViewController.swift */; };
+		4F6E7EEA2CEAD85E00EA7D20 /* WebViewPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6E7EE92CEAD85E00EA7D20 /* WebViewPageViewController.swift */; };
+		4F6E7EEC2CEAD86E00EA7D20 /* UrlViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6E7EEB2CEAD86E00EA7D20 /* UrlViewController.swift */; };
 		4F7B91892C831DF5007BC6C5 /* DelegateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7B91882C831DF5007BC6C5 /* DelegateManager.swift */; };
 		4F7B918C2C831FB0007BC6C5 /* MessageDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7B918B2C831FB0007BC6C5 /* MessageDelegate.swift */; };
 		4F7B918E2C831FBD007BC6C5 /* MessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7B918D2C831FBD007BC6C5 /* MessageModel.swift */; };
@@ -119,6 +121,8 @@
 		4F3610AA2CAAAC96007C05ED /* AnimationMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationMainViewController.swift; sourceTree = "<group>"; };
 		4F6E7EE22CE76A5700EA7D20 /* OtherMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherMainViewController.swift; sourceTree = "<group>"; };
 		4F6E7EE42CE76BAF00EA7D20 /* ImageOptViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageOptViewController.swift; sourceTree = "<group>"; };
+		4F6E7EE92CEAD85E00EA7D20 /* WebViewPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewPageViewController.swift; sourceTree = "<group>"; };
+		4F6E7EEB2CEAD86E00EA7D20 /* UrlViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlViewController.swift; sourceTree = "<group>"; };
 		4F7B91882C831DF5007BC6C5 /* DelegateManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DelegateManager.swift; sourceTree = "<group>"; };
 		4F7B918B2C831FB0007BC6C5 /* MessageDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageDelegate.swift; sourceTree = "<group>"; };
 		4F7B918D2C831FBD007BC6C5 /* MessageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageModel.swift; sourceTree = "<group>"; };
@@ -275,6 +279,15 @@
 			path = Other;
 			sourceTree = "<group>";
 		};
+		4F6E7EE82CEAD84C00EA7D20 /* webview */ = {
+			isa = PBXGroup;
+			children = (
+				4F6E7EEB2CEAD86E00EA7D20 /* UrlViewController.swift */,
+				4F6E7EE92CEAD85E00EA7D20 /* WebViewPageViewController.swift */,
+			);
+			path = webview;
+			sourceTree = "<group>";
+		};
 		4F7B918A2C831F9D007BC6C5 /* Delegate */ = {
 			isa = PBXGroup;
 			children = (
@@ -327,6 +340,7 @@
 		4FA347172C09D50300FB8C99 /* TestApp */ = {
 			isa = PBXGroup;
 			children = (
+				4F6E7EE82CEAD84C00EA7D20 /* webview */,
 				4F6E7EE12CE76A2600EA7D20 /* Other */,
 				4F3610A72CAAA7BC007C05ED /* Animation */,
 				4F7B91A42C895F9C007BC6C5 /* Extension */,
@@ -809,6 +823,7 @@
 				4FDB6CA32C147679003A978D /* MainViewController.swift in Sources */,
 				4FF25DC32CD1DD5A00F44828 /* TaskQueue.swift in Sources */,
 				4FDB6CCD2C1619AD003A978D /* TestUITableDelegateViewController.swift in Sources */,
+				4F6E7EEA2CEAD85E00EA7D20 /* WebViewPageViewController.swift in Sources */,
 				4FDB6CBD2C14E933003A978D /* CustomNavigationViewController.swift in Sources */,
 				4FDB6CC52C15FBC2003A978D /* TableViewController.swift in Sources */,
 				4FA347192C09D50300FB8C99 /* AppDelegate.swift in Sources */,
@@ -838,6 +853,7 @@
 				4F3610AB2CAAAC96007C05ED /* AnimationMainViewController.swift in Sources */,
 				4FDB6CB92C14E63E003A978D /* AddDataViewController.swift in Sources */,
 				4F7B918E2C831FBD007BC6C5 /* MessageModel.swift in Sources */,
+				4F6E7EEC2CEAD86E00EA7D20 /* UrlViewController.swift in Sources */,
 				4FDB6D092C1DAF80003A978D /* UIScrollViewController1.swift in Sources */,
 				4FDB6CDE2C19C880003A978D /* ActorData.swift in Sources */,
 				4F7B91892C831DF5007BC6C5 /* DelegateManager.swift in Sources */,
@@ -1025,9 +1041,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = Y937986V7G;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = P5C9VH8QJ8;
 				ENABLE_APP_SANDBOX = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "TestApp/Info-Debug.plist";
@@ -1045,9 +1063,10 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.app.testApp214;
+				PRODUCT_BUNDLE_IDENTIFIER = com.xiatalk.im;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = XTalk_dev_1105;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1062,9 +1081,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = Y937986V7G;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = P5C9VH8QJ8;
 				ENABLE_APP_SANDBOX = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "TestApp/Info-Release.plist";
@@ -1082,9 +1103,10 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.app.testApp214;
+				PRODUCT_BUNDLE_IDENTIFIER = com.xiatalk.im;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = XTalk_dev_1105;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
