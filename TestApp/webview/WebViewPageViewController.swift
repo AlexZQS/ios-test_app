@@ -52,7 +52,22 @@ class WebViewPageViewController: BaseViewController,WKNavigationDelegate,WKScrip
             make.right.equalToSuperview()
             make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom)
         }
+        
+        webView.scrollView.isScrollEnabled = false
+        webView.scrollView.pinchGestureRecognizer?.isEnabled = false
+
+        webView.scrollView.showsVerticalScrollIndicator = false
+        webView.scrollView.showsHorizontalScrollIndicator = false
+        webView.scrollView.alwaysBounceVertical = false
+        webView.scrollView.alwaysBounceHorizontal = false
+        
         webView.translatesAutoresizingMaskIntoConstraints = false
+        
+//        let disableScrollScript = """
+//        document.body.style.overflow = 'hidden';
+//        document.documentElement.style.overflow = 'hidden';
+//        """
+//        webView.evaluateJavaScript(disableScrollScript, completionHandler: nil)
 //        webView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
 //        webView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
 //        webView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true

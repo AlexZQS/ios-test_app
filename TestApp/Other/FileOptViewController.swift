@@ -70,7 +70,7 @@ class FileOptViewController: BaseViewController {
      }
      */
     
-    func fileTpye(fileURL: URL) -> String? {
+    func fileType(fileURL: URL) -> String? {
         let fileHandle: FileHandle?
         do {
             fileHandle = try FileHandle(forReadingFrom: fileURL)
@@ -172,7 +172,7 @@ extension FileOptViewController: UIDocumentPickerDelegate {
             do {
                 let fileData = try Data(contentsOf: selectedFileURL)
                 let fileId = fileMD5Hex(for: selectedFileURL) ?? ""
-                let fileType = fileTpye(fileURL: selectedFileURL) ?? ""
+                let fileType = fileType(fileURL: selectedFileURL) ?? ""
                 let fileExtension = selectedFileURL.pathExtension
                 print("File size: \(fileData.count) bytes \n")
                 print("File ID: \(fileId) \n")
