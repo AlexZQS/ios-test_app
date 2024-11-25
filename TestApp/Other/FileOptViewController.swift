@@ -9,7 +9,7 @@
 import UIKit
 import UniformTypeIdentifiers
 import CryptoKit
-
+import Alamofire
 
 class FileOptViewController: BaseViewController {
     
@@ -21,6 +21,24 @@ class FileOptViewController: BaseViewController {
                 documentPicker.delegate = self
                 documentPicker.allowsMultipleSelection = false // 是否允许多选
                 self.present(documentPicker, animated: true, completion: nil)
+            }))
+            return button
+        } else {
+            // Fallback on earlier versions
+            var button1 = UIButton(type: .roundedRect)
+            button1.backgroundColor = UIColor.systemBlue
+            return button1
+        }
+    }()
+    
+    
+    lazy var btnDownloadFile: UIButton = {
+        if #available(iOS 15.0, *) {
+            var button = UIButton(configuration: .filled(),primaryAction: UIAction(title: "下载文件",handler: { _ in
+                Task {
+                    await self.downloadFile()
+                }
+                
             }))
             return button
         } else {
@@ -45,12 +63,22 @@ class FileOptViewController: BaseViewController {
         self.navigationItem.title = "文件操作"
         
         view.addSubview(btnSelectFile)
+        view.addSubview(btnDownloadFile)
+
         btnSelectFile.snp.makeConstraints { make in
             make.top.equalTo(self.view.snp_topMargin).offset(30)
-            make.centerX.equalToSuperview()
-            make.width.equalTo(200)
+            make.left.equalToSuperview().offset(30)
+            make.width.equalTo(100)
             make.height.equalTo(50)
         }
+        
+        btnDownloadFile.snp.makeConstraints { make in
+            make.top.equalTo(self.view.snp_topMargin).offset(30)
+            make.right.equalToSuperview().offset(-30)
+            make.width.equalTo(100)
+            make.height.equalTo(50)
+        }
+        
         
         view.addSubview(lbFileInfo)
         lbFileInfo.snp.makeConstraints { make in
@@ -69,6 +97,74 @@ class FileOptViewController: BaseViewController {
      // Pass the selected object to the new view controller.
      }
      */
+    
+    func downloadFile() async {
+        let configuration = URLSessionConfiguration.default
+        configuration.timeoutIntervalForRequest = 15
+        configuration.timeoutIntervalForResource = 15
+        
+//        configuration.httpAdditionalHeaders = ["User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36"]
+        
+        let session = URLSession(configuration: configuration)
+        
+        let tsPath = "https://test-streams.mux.dev/x36xhzz/url_0/url_462/193039199_mp4_h264_aac_hd_7.ts"
+        if let url = URL.init(string: "https://test-streams.mux.dev/x36xhzz/url_0/url_462/193039199_mp4_h264_aac_hd_7.ts") {
+            var destinationPath = ""
+            if let cachesDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
+                destinationPath = "\(cachesDirectory.path)/cache/"
+            }
+            let destination: DownloadRequest.Destination = { _, _ in
+                    let fileURL = URL(fileURLWithPath: destinationPath)
+                    return (fileURL, [.removePreviousFile, .createIntermediateDirectories])
+                }
+                
+//                AF.download(tsPath, to: destination).response { response in
+//                    if let filePath = response.fileURL {
+//                        print("************ success url = \(url.absoluteString)")
+//                    } else if let error = response.error {
+//                        print("************ failed error = \(error)")
+//                    }
+//                }
+            
+//            AF.request(tsPath).responseData { response in
+//                switch response.result {
+//                case .success(let m3u8Content):
+//                    YHDebugLog("************ success url = \(url.absoluteString)")
+//                case .failure(let error):
+//                    YHDebugLog("************ failed error = \(error)")
+//                }
+//            }
+            
+            var request = URLRequest(url: url)
+//            request.setValue("application/octet-stream", forHTTPHeaderField: "Content-Type")
+           
+            let session1 = URLSession.shared
+//            session.downloadTask(withResumeData: <#T##Data#>)
+//            session.downloadTask(withResumeData: data) { url, request, error in
+//                if let mError = error {
+//                    print("************ failed error = \(mError)")
+//                    return
+//                }
+//                print("************ success url = \(url?.absoluteString ?? "")")
+//            }.resume()
+            session.downloadTask(with: url) { url, response, error in
+                if let mError = error {
+                    print("************ failed error = \(mError)")
+                    return
+                }
+                print("************ success url = \(url?.absoluteString ?? "")")
+            }.resume()
+        
+            
+//            session.dataTask(with: request) {  data, response, error in
+//                if let mData = data {
+//                    YHDebugLog("************ success data = \(String(data: mData, encoding: .utf8))")
+//                    return
+//                }
+//                YHDebugLog("************ failed error = \(error)")
+//            }.resume()
+        }
+    }
     
     func fileType(fileURL: URL) -> String? {
         let fileHandle: FileHandle?

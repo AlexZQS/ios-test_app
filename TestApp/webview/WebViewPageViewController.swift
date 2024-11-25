@@ -53,32 +53,12 @@ class WebViewPageViewController: BaseViewController,WKNavigationDelegate,WKScrip
             make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom)
         }
         
-        webView.scrollView.isScrollEnabled = false
-        webView.scrollView.pinchGestureRecognizer?.isEnabled = false
-
-        webView.scrollView.showsVerticalScrollIndicator = false
-        webView.scrollView.showsHorizontalScrollIndicator = false
-        webView.scrollView.alwaysBounceVertical = false
-        webView.scrollView.alwaysBounceHorizontal = false
         
         webView.translatesAutoresizingMaskIntoConstraints = false
-        
-//        let disableScrollScript = """
-//        document.body.style.overflow = 'hidden';
-//        document.documentElement.style.overflow = 'hidden';
-//        """
-//        webView.evaluateJavaScript(disableScrollScript, completionHandler: nil)
-//        webView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-//        webView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-//        webView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-//        webView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         
         if #available(iOS 11.0, *) {
             webView.scrollView.contentInsetAdjustmentBehavior = .never
         }
-        
-        
-        
         
 //        loading.startAnimating()
         loadHTML()
@@ -109,23 +89,6 @@ class WebViewPageViewController: BaseViewController,WKNavigationDelegate,WKScrip
     }
     
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
-        // 判断是否是支付宝 schema
-        if let url = navigationAction.request.url, url.scheme == "alipay" {
-            // 如果是支付宝 schema，则打开支付宝应用
-            openAlipayApp(url: url)
-            // 取消 WebView 的导航，防止在 WebView 中继续加载
-            decisionHandler(.cancel)
-            return
-        }
-        
-        if let url = navigationAction.request.url, url.scheme == "wechat" {
-            // 如果是支付宝 schema，则打开支付宝应用
-            openAlipayApp(url: url)
-            // 取消 WebView 的导航，防止在 WebView 中继续加载
-            decisionHandler(.cancel)
-            return
-        }
-        
         // 允许 WebView 继续导航
         decisionHandler(.allow)
     }
