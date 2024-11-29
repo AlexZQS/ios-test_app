@@ -12,9 +12,12 @@ class TestCoroutineViewController: BaseViewController {
 
     var enableData = ActorData()
     
+    private let serialQueue = DispatchQueue(label: "com.example.serialQueue")
+    private let dispatchGroup = DispatchGroup()
+    
     @IBAction func testMainActor(_ sender: Any) {
         for i in 0..<10{
-            test()
+            test1()
         }
     }
     @IBAction func testActor(_ sender: Any) {
@@ -62,7 +65,7 @@ class TestCoroutineViewController: BaseViewController {
             await self.queue.addTask {
                 print("主线程:\(Thread.current.isMainThread)添加任务开始0")
 //                await self.test2()
-                await self.test2()
+                await self.testSub()
                 await MainActor.run {
                     print("主线程:\(Thread.current.isMainThread)耗时任务开始3")
                     Thread.sleep(forTimeInterval: 0.1)
@@ -72,12 +75,35 @@ class TestCoroutineViewController: BaseViewController {
         }
     }
     
-    func test2() async {
+    func testSub() async {
         print("主线程:\(Thread.current.isMainThread)耗时任务开始1")
         print("主线程:\(Thread.current.isMainThread)耗时任务结束2")
-        
-        
     }
+    
+    func test1()  {
+        dispatchGroup.enter()
+        serialQueue.async(group: dispatchGroup) {
+            self.dispatchGroup.wait()
+            // 模拟IO操作，比如从网络获取数据
+            print("任务1开始 - IO 操作")
+            sleep(2)  // 模拟IO操作延时
+            print("任务1完成 - IO 操作")
+            
+            // IO操作完成后，更新UI
+            DispatchQueue.main.async {
+                self.updateUIForTask1()
+                self.dispatchGroup.leave()
+            }
+        }
+    }
+    
+    // 更新UI的函数1
+    func updateUIForTask1() {
+        print("更新UI: 任务1完成后的UI更新")
+        // 在这里更新你的UI组件，例如Label、Button等
+    }
+    
+    
 
     /*
     // MARK: - Navigation
