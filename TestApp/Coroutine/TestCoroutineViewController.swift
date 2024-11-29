@@ -83,17 +83,16 @@ class TestCoroutineViewController: BaseViewController {
     func test1()  {
         dispatchGroup.enter()
         serialQueue.async(group: dispatchGroup) {
-            self.dispatchGroup.wait()
             // 模拟IO操作，比如从网络获取数据
             print("任务1开始 - IO 操作")
             sleep(2)  // 模拟IO操作延时
             print("任务1完成 - IO 操作")
             
             // IO操作完成后，更新UI
-            DispatchQueue.main.async {
+            self.dispatchGroup.notify(queue: DispatchQueue.main) {
                 self.updateUIForTask1()
-                self.dispatchGroup.leave()
             }
+            self.dispatchGroup.leave()
         }
     }
     
