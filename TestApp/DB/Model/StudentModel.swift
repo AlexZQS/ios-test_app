@@ -10,7 +10,8 @@ import Foundation
 import WCDBSwift
 
 class StudentModel: TableCodable {
-    var id: String = ""
+    var id: Int?
+    var userId: String = ""
     var name: String? = nil
     
     
@@ -18,10 +19,13 @@ class StudentModel: TableCodable {
         public typealias Root = StudentModel
         case id
         case name
+        case userId
         
         static let objectRelationalMapping = TableBinding(CodingKeys.self) {
-            BindColumnConstraint(id, isPrimary: true)
+            BindColumnConstraint(id, isPrimary: true,isAutoIncrement: true)
+            BindColumnConstraint(userId, isNotNull: true, defaultTo: "defaultDescription")
             BindColumnConstraint(name, isNotNull: true, defaultTo: "defaultDescription")
+            BindIndex(userId, namedWith: "StudentModel_userId_index", isUnique: true)
         }
         
     }

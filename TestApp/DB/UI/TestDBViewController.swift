@@ -52,6 +52,11 @@ class TestDBViewController: BaseViewController {
             UIAction(title: "查询columns", handler: { action in
                 self.queryIds()
             }),
+            UIAction(title: "添加一条数据", handler: { action in
+                Task {
+                    await self.addOneData()
+                }
+            }),
             UIAction(title: "退出", handler: {action in
                 self.navigationController?.popViewController(animated: true)
             })
@@ -119,26 +124,41 @@ class TestDBViewController: BaseViewController {
         }
     }
     
+    func addOneData() async {
+        let stududent = StudentModel()
+        stududent.userId = "901"
+        stududent.name = "哈哈哈"
+        
+        do {
+            try await StudentModelDao.insertUser(userDB: dataBase, student: stududent)
+            print("添加数据的id 111：\(stududent.id)")
+            let newUser = try await StudentModelDao.queryUser(userDB: dataBase, userId: stududent.userId)
+            print("添加数据的id 222：\(newUser?.id)")
+        } catch {
+            print("报错了 \(error)")
+        }
+    }
+    
     func addData() {
         Task {
             var datas = Array<StudentModel>()
             let stududent = StudentModel()
-            stududent.id = "1"
+            stududent.userId = "1"
             stududent.name = "李四"
             datas.append(stududent)
             
             let stududent1 = StudentModel()
-            stududent1.id = "2"
+            stududent1.userId = "2"
             stududent1.name = "王五"
             datas.append(stududent1)
             
             let stududent2 = StudentModel()
-            stududent2.id = "3"
+            stududent2.userId = "3"
             stududent2.name = "老李"
             datas.append(stududent2)
             
             let stududent3 = StudentModel()
-            stududent3.id = "4"
+            stududent3.userId = "4"
             stududent3.name = "李飞1111"
             datas.append(stududent3)
             
@@ -164,38 +184,38 @@ class TestDBViewController: BaseViewController {
         Task {
             var datas = Array<StudentModel>()
             let stududent = StudentModel()
-            stududent.id = "1"
+            stududent.userId = "1"
             stududent.name = "李四"
             datas.append(stududent)
             
             let stududent1 = StudentModel()
-            stududent1.id = "2"
+            stududent1.userId = "2"
             stududent1.name = "王五"
             datas.append(stududent1)
             
             let stududent2 = StudentModel()
-            stududent2.id = "3"
+            stududent2.userId = "3"
             stududent2.name = "老李"
             datas.append(stududent2)
             
             let stududent3 = StudentModel()
-            stududent3.id = "4"
+            stududent3.userId = "4"
             stududent3.name = "李飞1111更新"
             datas.append(stududent3)
             
             let stududent4 = StudentModel()
-            stududent4.id = "5"
+            stududent4.userId = "5"
             stududent4.name = "新增的数据111"
             datas.append(stududent4)
             
             let stududent5 = StudentModel()
-            stududent5.id = "6"
+            stududent5.userId = "6"
             stududent5.name = "新增的数据222"
             datas.append(stududent5)
             
             
             let stududent6 = StudentModel()
-            stududent6.id = "8"
+            stududent6.userId = "8"
             stududent6.name = "新增的数据888"
             datas.append(stududent6)
             
@@ -254,7 +274,7 @@ extension TestDBViewController: UITableViewDataSource {
             cell = UITableViewCell.init(style: .value1, reuseIdentifier: "userCell")
         }
         cell?.detailTextLabel?.text = self.models[indexPath.row].name ?? ""
-        cell?.textLabel?.text = self.models[indexPath.row].id 
+        cell?.textLabel?.text = self.models[indexPath.row].userId
         return cell!
     }
     

@@ -42,11 +42,58 @@ class StudentModelDao {
         return result
     }
     
+    static func queryUser(userDB: Database?,userId: String) async throws -> StudentModel? {
+        guard let db = userDB else {
+            return nil
+        }
+        let condition: Condition = StudentModel.CodingKeys.userId == userId
+        let result: StudentModel? = try db.getObject(fromTable: table_name,where: condition)
+        return result
+    }
+    
     static func insertUser(userDB: Database?,users: [StudentModel]) async throws {
         guard let db = userDB else {
             return
         }
         try db.insert(users, intoTable: table_name)
+    }
+    
+    static func insertUser(userDB: Database?,student: StudentModel) async throws {
+        guard let db = userDB else {
+            return
+        }
+        try db.insert(student, intoTable: table_name)
+    }
+    
+    static func handleInsert(userDB: Database?,student: StudentModel) async throws {
+        guard let db = userDB else {
+            return
+        }
+        
+//        let properites = [
+//            StudentModel.Properties.userId,
+//            StudentModel.Properties.name,
+//        ]
+        
+        let insert = StatementInsert().insert(intoTable: table_name)
+//        for user in users {
+//            let name = user.name ?? ""
+//            insert.columns(Column(named: "userId"),Column(named: "name"))
+//                .values(user.userId,name)
+//                .onConflict(.Ignore)
+//                
+//        }
+        
+        let name = student.name ?? ""
+        insert.columns(Column(named: "userId"),Column(named: "name"))
+            .values(student.userId,name)
+            .onConflict(.Ignore)
+        
+        
+        let handle = try db.getHandle()
+        let stmt = try handle.getOrCreatePreparedStatement(with: insert)
+        try stmt.step()
+        handle.finalizeAllStatement()
     }
     
     static func updateUser(userDB: Database?,id: String,name: String) async throws {
@@ -96,7 +143,7 @@ class StudentModelDao {
         }
     
         let properites = [
-            StudentModel.Properties.id,
+            StudentModel.Properties.userId,
             StudentModel.Properties.name,
         ]
         
@@ -109,8 +156,8 @@ class StudentModelDao {
         
         for user in users {
             let name = user.name ?? ""
-            insert.columns(Column(named: "id"),Column(named: "name"))
-                .values(user.id,name)
+            insert.columns(Column(named: "userId"),Column(named: "name"))
+                .values(user.userId,name)
                 .onConflict(.Ignore)
                 
         }

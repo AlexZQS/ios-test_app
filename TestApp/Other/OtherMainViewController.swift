@@ -10,6 +10,8 @@ import UIKit
 
 class OtherMainViewController: BaseViewController {
     
+    var timer: DispatchSourceTimer?
+    
     lazy var stackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
@@ -53,6 +55,35 @@ class OtherMainViewController: BaseViewController {
         }
     }()
     
+    lazy var btnTimerOpt: UIButton = {
+        
+        
+        if #available(iOS 15.0, *) {
+            var button = UIButton(configuration: .filled(),primaryAction: UIAction(title: "定时器操作",handler: { _ in
+                // 定时器测试
+                self.timer = DispatchSource.makeTimerSource(queue: DispatchQueue.global())
+                self.timer?.schedule(deadline: .now() + 0.3, repeating: 0)
+                self.timer?.setEventHandler {
+                    Task {
+                        self.timer?.cancel()
+                        self.timer = nil
+                        Thread.sleep(forTimeInterval: 0.3)
+                        print("定时器测试")
+                    }
+                }
+                self.timer?.resume()
+            }))
+            return button
+        } else {
+            // Fallback on earlier versions
+            var button1 = UIButton(type: .roundedRect)
+            button1.backgroundColor = UIColor.systemBlue
+            return button1
+        }
+    }()
+    
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -74,6 +105,11 @@ class OtherMainViewController: BaseViewController {
         
         stackView.addArrangedSubview(btnFileOpt)
         btnFileOpt.snp.makeConstraints { make in
+            make.size.equalTo(CGSize(width: 200, height: 50))
+        }
+        
+        stackView.addArrangedSubview(btnTimerOpt)
+        btnTimerOpt.snp.makeConstraints { make in
             make.size.equalTo(CGSize(width: 200, height: 50))
         }
         

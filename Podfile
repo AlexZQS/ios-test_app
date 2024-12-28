@@ -15,6 +15,7 @@ target 'TestApp' do
   pod 'SnapKit', '~> 5.7.0'
   pod 'TZImagePickerController'
   pod 'Alamofire', '5.9.1'
+  pod 'IGListKit', '~> 5.0.0'
 #  install_all_flutter_pods(flutter_application_path)
 
   target 'TestAppTests' do
