@@ -81,24 +81,45 @@ class TestCoroutineViewController: BaseViewController {
     }
     
     func test1()  {
-        dispatchGroup.enter()
-        serialQueue.async(group: dispatchGroup) {
-            // 模拟IO操作，比如从网络获取数据
-            print("任务1开始 - IO 操作")
-            sleep(2)  // 模拟IO操作延时
-            print("任务1完成 - IO 操作")
-            
-            // IO操作完成后，更新UI
-            self.dispatchGroup.notify(queue: DispatchQueue.main) {
-                self.updateUIForTask1()
+        serialQueue.async {
+            self.dispatchGroup.enter()
+            self.processNewMessage() {
+                DispatchQueue.main.async {
+                    self.updateUIForTask1 {
+                        self.dispatchGroup.leave() // 标记任务完成
+                    }
+                }
             }
-            self.dispatchGroup.leave()
+            self.dispatchGroup.wait()
+        }
+        
+       
+    }
+    
+    func processNewMessage() {
+        // 模拟整理过程，例如合并排序
+        Task.detached {
+            print("开始整理消息: isMain :\(Thread.isMainThread)")
+            sleep(2)
+            print("整理完成: isMain :\(Thread.isMainThread)")
+        }
+    }
+    
+    func processNewMessage(completion: @escaping () async -> Void) {
+        // 模拟整理过程，例如合并排序
+        Task.detached {
+            print("开始整理消息: isMain :\(Thread.isMainThread)")
+            sleep(2)
+            print("整理完成: isMain :\(Thread.isMainThread)")
+            await completion()
         }
     }
     
     // 更新UI的函数1
-    func updateUIForTask1() {
-        print("更新UI: 任务1完成后的UI更新")
+    func updateUIForTask1(completion: @escaping () -> Void) {
+        print("更新UI: 任务1完成后的UI更新 ")
+        sleep(1)
+        completion()
         // 在这里更新你的UI组件，例如Label、Button等
     }
     
