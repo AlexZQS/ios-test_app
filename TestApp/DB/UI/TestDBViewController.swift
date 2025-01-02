@@ -126,14 +126,14 @@ class TestDBViewController: BaseViewController {
     
     func addOneData() async {
         let stududent = StudentModel()
-        stududent.userId = "901"
+        stududent.userId = "910"
         stududent.name = "哈哈哈"
         
         do {
             try await StudentModelDao.insertUser(userDB: dataBase, student: stududent)
-            print("添加数据的id 111：\(stududent.id)")
+            print("添加数据的id 111：lastInsertedRowID = \(stududent.lastInsertedRowID) id = \(stududent.id)")
             let newUser = try await StudentModelDao.queryUser(userDB: dataBase, userId: stududent.userId)
-            print("添加数据的id 222：\(newUser?.id)")
+            print("添加数据的id 222：userId = \(newUser?.userId) lastInsertedRowID = \(newUser?.lastInsertedRowID) id = \(newUser?.id)")
         } catch {
             print("报错了 \(error)")
         }

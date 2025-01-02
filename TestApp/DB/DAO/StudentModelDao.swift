@@ -26,7 +26,7 @@ class StudentModelDao {
             return []
         }
         
-        let result = try db.getColumn(on: StudentModel.Properties.id, fromTable: table_name)
+        let result = try db.getColumn(on: StudentModel.Properties.userId, fromTable: table_name)
         var ids = [String]()
         for column in result {
             ids.append(column.stringValue)
@@ -96,7 +96,7 @@ class StudentModelDao {
         handle.finalizeAllStatement()
     }
     
-    static func updateUser(userDB: Database?,id: String,name: String) async throws {
+    static func updateUser(userDB: Database?,userId: String,name: String) async throws {
         guard let db = userDB else {
             return
         }
@@ -106,7 +106,7 @@ class StudentModelDao {
         ]
         
         user.name = name
-        try db.update(table: table_name, on: properites, with: user, where: StudentModel.Properties.id == id)
+        try db.update(table: table_name, on: properites, with: user, where: StudentModel.Properties.userId == userId)
     }
     
     static func clear(userDB: Database?) async throws {
@@ -175,7 +175,7 @@ class StudentModelDao {
         }
         
         let properites = [
-            StudentModel.Properties.id,
+            StudentModel.Properties.userId,
             StudentModel.Properties.name,
         ]
         

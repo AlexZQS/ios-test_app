@@ -9,7 +9,7 @@
 import Foundation
 import WCDBSwift
 
-class StudentModel: TableCodable {
+final class StudentModel: TableCodable {
     var id: Int?
     var userId: String = ""
     var name: String? = nil
@@ -27,6 +27,8 @@ class StudentModel: TableCodable {
             BindColumnConstraint(name, isNotNull: true, defaultTo: "defaultDescription")
             BindIndex(userId, namedWith: "StudentModel_userId_index", isUnique: true)
         }
-        
     }
+    
+    var isAutoIncrement: Bool = true // 用于定义是否使用自增的方式插入
+    var lastInsertedRowID: Int64 = 0 // 用于获取自增插入后的主键值
 }
