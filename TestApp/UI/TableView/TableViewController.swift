@@ -38,6 +38,11 @@ class TableViewController: BaseViewController {
         self.navigationController?.pushViewController(controller, animated: true)
     }
     
+    @IBAction func GList(_ sender: Any) {
+        let controller = TestIGListKitViewController()
+        self.navigationController?.pushViewController(controller, animated: true)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "TableView"
