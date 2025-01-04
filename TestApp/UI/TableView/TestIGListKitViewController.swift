@@ -130,6 +130,8 @@ class TestIGListKitViewController: BaseViewController {
     
     func move() {
         let from = people
+        
+        print("\(#file) 开始移动了 ")
         var newPeople = [
             Person(pk: 2, name: "Mike",content: "哈哈1",time: "2025/10/30",sort: 3),
             Person(pk: 10, name: "Marne",content: "今天周几",time: "2025/10/29",sort: 4),
@@ -185,7 +187,7 @@ extension TestIGListKitViewController: UITableViewDataSource {
         }
         let peopleItem = people[indexPath.row]
         
-        print("set model 开始了，peopleItem:\(peopleItem.name) indexPath.row:\(indexPath.row)")
+        print("\(#file) set model 开始了，peopleItem:\(peopleItem.name) indexPath.row:\(indexPath.row)")
         cell?.mBodyView.text = peopleItem.content
         cell?.mTitleView.text = peopleItem.name
         cell?.mTimeView.text = peopleItem.time
