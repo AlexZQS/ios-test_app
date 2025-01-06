@@ -1,8 +1,8 @@
-//// 
+////
 //  StudentModelDao.swift
 //  TestApp
 //  Created by ___ORGANIZATIONNAME___ on 2024/6/8
-//  
+//
 //
 //
 
@@ -14,7 +14,7 @@ class StudentModelDao {
     static var table_name = "user"
     
     static func createTable(userDB: Database?,tableName: String) throws {
-//        self.table_name = tableName
+        //        self.table_name = tableName
         guard let db = userDB else {
             return
         }
@@ -70,19 +70,19 @@ class StudentModelDao {
             return
         }
         
-//        let properites = [
-//            StudentModel.Properties.userId,
-//            StudentModel.Properties.name,
-//        ]
+        //        let properites = [
+        //            StudentModel.Properties.userId,
+        //            StudentModel.Properties.name,
+        //        ]
         
         let insert = StatementInsert().insert(intoTable: table_name)
-//        for user in users {
-//            let name = user.name ?? ""
-//            insert.columns(Column(named: "userId"),Column(named: "name"))
-//                .values(user.userId,name)
-//                .onConflict(.Ignore)
-//                
-//        }
+        //        for user in users {
+        //            let name = user.name ?? ""
+        //            insert.columns(Column(named: "userId"),Column(named: "name"))
+        //                .values(user.userId,name)
+        //                .onConflict(.Ignore)
+        //
+        //        }
         
         let name = student.name ?? ""
         insert.columns(Column(named: "userId"),Column(named: "name"))
@@ -116,6 +116,16 @@ class StudentModelDao {
         try db.delete(fromTable: table_name)
     }
     
+    static func insertUsers3(userDB: Database?,users: [StudentModel]) async throws {
+        guard let db = userDB else {
+            return
+        }
+        // 自增长和ignore 会导致崩溃
+        //        try db.insertOrIgnore(users, intoTable: table_name)
+        
+    }
+    
+    
     static func insertUsers2(queue: UUQueue<Database>?,users: [StudentModel]) async throws {
         guard let mQueue = queue else {
             return
@@ -124,49 +134,53 @@ class StudentModelDao {
         try await mQueue.excuteTask { dbBase in
             
             try dbBase.run(transaction: { handle in
-                    
+                
                 try dbBase.insert(users, intoTable: table_name)
             })
         }
-//
-//        let properites = [
-//            StudentModel.Properties.id,
-//            StudentModel.Properties.name,
-//        ]
+        //
+        //        let properites = [
+        //            StudentModel.Properties.id,
+        //            StudentModel.Properties.name,
+        //        ]
         
         
     }
     
-    static func insertUsers1(userDB: Database?,users: [StudentModel]) async throws {
+    static func insertUsers1(userDB: Database?,users: [StudentModel]) async throws -> [StudentModel] {
         guard let db = userDB else {
-            return
+            return []
         }
-    
+        
         let properites = [
             StudentModel.Properties.userId,
             StudentModel.Properties.name,
         ]
         
-//        let up = Upsert().onConflict().indexed(by: StudentModel.Properties.id).doUpdate().set(StudentModel.Properties.name)
-//        
-//        let statementInsert = StatementInsert().insert(intoTable:table_name )
-//            .with()
-       
-        let insert = StatementInsert().insert(intoTable: table_name)
+        //        let up = Upsert().onConflict().indexed(by: StudentModel.Properties.id).doUpdate().set(StudentModel.Properties.name)
+        //
+        //        let statementInsert = StatementInsert().insert(intoTable:table_name )
+        //            .with()
+        var returnDatas = [StudentModel]()
         
-        for user in users {
+        let handle = try db.getHandle()
+        let insert = StatementInsert().insert(intoTable: table_name)
+        let stmt = try handle.getOrCreatePreparedStatement(with: insert)
+        for (idx,user) in users.enumerated() {
+            handle.reset()
             let name = user.name ?? ""
             insert.columns(Column(named: "userId"),Column(named: "name"))
                 .values(user.userId,name)
                 .onConflict(.Ignore)
-                
+            try stmt.step()
+            let rowId = handle.lastInsertedRowID
+            user.lastInsertedRowID = rowId
+            returnDatas.append(user)
         }
-        let handle = try db.getHandle()
-        let stmt = try handle.getOrCreatePreparedStatement(with: insert)
-        try stmt.step()
-        let data = try insert.onConflict()
         handle.finalizeAllStatement()
-//        print(data)
+        
+        //        print(data)
+        return returnDatas
     }
     
     static func insertUsers(userDB: Database?,users: [StudentModel]) async throws {
@@ -185,23 +199,23 @@ class StudentModelDao {
             let insert: Insert = try db.prepareInsertOrIgnore(of: StudentModel.self, intoTable: table_name)
             try insert.execute(with: users)
             
-//            for user in users {
-//                do {
-//                    try db.insert(user, intoTable: table_name)
-//                } catch {
-//                    try db.update(table: table_name, on: properites, with: user, where: StudentModel.Properties.id == user.id)
-//                }
-//            }
+            //            for user in users {
+            //                do {
+            //                    try db.insert(user, intoTable: table_name)
+            //                } catch {
+            //                    try db.update(table: table_name, on: properites, with: user, where: StudentModel.Properties.id == user.id)
+            //                }
+            //            }
             
-//            for user in updateUsers {
-//                let properites = [
-//                    StudentModel.Properties.name,
-//                ]
-//                
-//                user.name = user.name
-//                
-//                try db.update(table: table_name, on: properites, with: user, where: StudentModel.Properties.id == user.id)
-//            }
+            //            for user in updateUsers {
+            //                let properites = [
+            //                    StudentModel.Properties.name,
+            //                ]
+            //
+            //                user.name = user.name
+            //
+            //                try db.update(table: table_name, on: properites, with: user, where: StudentModel.Properties.id == user.id)
+            //            }
             
             
         })

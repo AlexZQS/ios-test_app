@@ -222,8 +222,11 @@ class TestDBViewController: BaseViewController {
             
             
             do {
-//                try await StudentModelDao.insertUsers1(userDB: dataBase, users: datas)
-                try await StudentModelDao.insertUsers2(queue: self.queue, users: datas)
+                let results = try await StudentModelDao.insertUsers1(userDB: dataBase, users: datas)
+//                try await StudentModelDao.insertUsers2(queue: self.queue, users: datas)
+                for data in results {
+                    print("userId = \(data.userId) name =\(data.name) lastInsertedRowID = \(data.lastInsertedRowID) id = \(data.id)")
+                }
                 let users = try await StudentModelDao.queryUsers(userDB: dataBase)
                 
                 DispatchQueue.main.async {
@@ -234,6 +237,8 @@ class TestDBViewController: BaseViewController {
             } catch {
                 if let dbError = error as? WCDBError, dbError.extendedCode == WCDBError.ExtendCode.ConstraintPrimaryKey {
                     print("检测到冲突了\(error) ")
+                } else {
+                    print("检测到错误了\(error) ")
                 }
             }
             
