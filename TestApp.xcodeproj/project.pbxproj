@@ -17,6 +17,11 @@
 		4F6E7EE52CE76BAF00EA7D20 /* ImageOptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6E7EE42CE76BAF00EA7D20 /* ImageOptViewController.swift */; };
 		4F6E7EEA2CEAD85E00EA7D20 /* WebViewPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6E7EE92CEAD85E00EA7D20 /* WebViewPageViewController.swift */; };
 		4F6E7EEC2CEAD86E00EA7D20 /* UrlViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6E7EEB2CEAD86E00EA7D20 /* UrlViewController.swift */; };
+		4F6EAE642D320DAF00249E78 /* PerformanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6EAE632D320DAF00249E78 /* PerformanceViewController.swift */; };
+		4F6EAE672D320EB200249E78 /* StringUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6EAE662D320EB200249E78 /* StringUtils.swift */; };
+		4F766C522D354F6A00FCFAA5 /* Diffable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F766C512D354F6A00FCFAA5 /* Diffable.swift */; };
+		4F766C542D360CBC00FCFAA5 /* TestIGListKitViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F766C532D360CBC00FCFAA5 /* TestIGListKitViewController2.swift */; };
+		4F766C562D362F4E00FCFAA5 /* TestDifferenceKitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F766C552D362F4E00FCFAA5 /* TestDifferenceKitViewController.swift */; };
 		4F7B91892C831DF5007BC6C5 /* DelegateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7B91882C831DF5007BC6C5 /* DelegateManager.swift */; };
 		4F7B918C2C831FB0007BC6C5 /* MessageDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7B918B2C831FB0007BC6C5 /* MessageDelegate.swift */; };
 		4F7B918E2C831FBD007BC6C5 /* MessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7B918D2C831FBD007BC6C5 /* MessageModel.swift */; };
@@ -57,7 +62,7 @@
 		4FDB6CBD2C14E933003A978D /* CustomNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDB6CBC2C14E933003A978D /* CustomNavigationViewController.swift */; };
 		4FDB6CC12C15FAAF003A978D /* TestUITableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDB6CBF2C15FAAF003A978D /* TestUITableViewController.swift */; };
 		4FDB6CC22C15FAAF003A978D /* TestUITableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FDB6CC02C15FAAF003A978D /* TestUITableViewController.xib */; };
-		4FDB6CC52C15FBC2003A978D /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDB6CC32C15FBC2003A978D /* TableViewController.swift */; };
+		4FDB6CC52C15FBC2003A978D /* TableViewEntryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDB6CC32C15FBC2003A978D /* TableViewEntryController.swift */; };
 		4FDB6CC62C15FBC2003A978D /* TableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FDB6CC42C15FBC2003A978D /* TableViewController.xib */; };
 		4FDB6CC92C161611003A978D /* TableViewCell1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDB6CC72C161611003A978D /* TableViewCell1.swift */; };
 		4FDB6CCA2C161611003A978D /* TableViewCell1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FDB6CC82C161611003A978D /* TableViewCell1.xib */; };
@@ -126,6 +131,11 @@
 		4F6E7EE42CE76BAF00EA7D20 /* ImageOptViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageOptViewController.swift; sourceTree = "<group>"; };
 		4F6E7EE92CEAD85E00EA7D20 /* WebViewPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewPageViewController.swift; sourceTree = "<group>"; };
 		4F6E7EEB2CEAD86E00EA7D20 /* UrlViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlViewController.swift; sourceTree = "<group>"; };
+		4F6EAE632D320DAF00249E78 /* PerformanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformanceViewController.swift; sourceTree = "<group>"; };
+		4F6EAE662D320EB200249E78 /* StringUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringUtils.swift; sourceTree = "<group>"; };
+		4F766C512D354F6A00FCFAA5 /* Diffable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Diffable.swift; sourceTree = "<group>"; };
+		4F766C532D360CBC00FCFAA5 /* TestIGListKitViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestIGListKitViewController2.swift; sourceTree = "<group>"; };
+		4F766C552D362F4E00FCFAA5 /* TestDifferenceKitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestDifferenceKitViewController.swift; sourceTree = "<group>"; };
 		4F7B91882C831DF5007BC6C5 /* DelegateManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DelegateManager.swift; sourceTree = "<group>"; };
 		4F7B918B2C831FB0007BC6C5 /* MessageDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageDelegate.swift; sourceTree = "<group>"; };
 		4F7B918D2C831FBD007BC6C5 /* MessageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageModel.swift; sourceTree = "<group>"; };
@@ -171,7 +181,7 @@
 		4FDB6CBC2C14E933003A978D /* CustomNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationViewController.swift; sourceTree = "<group>"; };
 		4FDB6CBF2C15FAAF003A978D /* TestUITableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestUITableViewController.swift; sourceTree = "<group>"; };
 		4FDB6CC02C15FAAF003A978D /* TestUITableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestUITableViewController.xib; sourceTree = "<group>"; };
-		4FDB6CC32C15FBC2003A978D /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		4FDB6CC32C15FBC2003A978D /* TableViewEntryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewEntryController.swift; sourceTree = "<group>"; };
 		4FDB6CC42C15FBC2003A978D /* TableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewController.xib; sourceTree = "<group>"; };
 		4FDB6CC72C161611003A978D /* TableViewCell1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell1.swift; sourceTree = "<group>"; };
 		4FDB6CC82C161611003A978D /* TableViewCell1.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell1.xib; sourceTree = "<group>"; };
@@ -294,6 +304,22 @@
 			path = webview;
 			sourceTree = "<group>";
 		};
+		4F6EAE622D320D8B00249E78 /* Performance */ = {
+			isa = PBXGroup;
+			children = (
+				4F6EAE632D320DAF00249E78 /* PerformanceViewController.swift */,
+			);
+			path = Performance;
+			sourceTree = "<group>";
+		};
+		4F6EAE652D320E9000249E78 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				4F6EAE662D320EB200249E78 /* StringUtils.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		4F7B918A2C831F9D007BC6C5 /* Delegate */ = {
 			isa = PBXGroup;
 			children = (
@@ -346,6 +372,8 @@
 		4FA347172C09D50300FB8C99 /* TestApp */ = {
 			isa = PBXGroup;
 			children = (
+				4F6EAE652D320E9000249E78 /* Utils */,
+				4F6EAE622D320D8B00249E78 /* Performance */,
 				4F6E7EE82CEAD84C00EA7D20 /* webview */,
 				4F6E7EE12CE76A2600EA7D20 /* Other */,
 				4F3610A72CAAA7BC007C05ED /* Animation */,
@@ -503,25 +531,28 @@
 		4FDB6CFC2C1CA7A8003A978D /* TableView */ = {
 			isa = PBXGroup;
 			children = (
-				4F8177592D22900700358594 /* TableViewCell2.swift */,
-				4F8177572D22900200358594 /* TableViewCell2.xib */,
-				4FDB6CBF2C15FAAF003A978D /* TestUITableViewController.swift */,
-				4FDB6CC02C15FAAF003A978D /* TestUITableViewController.xib */,
-				4FDB6CC32C15FBC2003A978D /* TableViewController.swift */,
-				4FDB6CC42C15FBC2003A978D /* TableViewController.xib */,
-				4FDB6CC72C161611003A978D /* TableViewCell1.swift */,
-				4FDB6CC82C161611003A978D /* TableViewCell1.xib */,
-				4FDB6CCB2C1619AD003A978D /* TestUITableDelegateViewController.swift */,
-				4FDB6CCC2C1619AD003A978D /* TestUITableDelegateViewController.xib */,
-				4FDB6CCF2C1896F5003A978D /* TestUiTableIndexViewController.swift */,
-				4FDB6CD02C1896F5003A978D /* TestUiTableIndexViewController.xib */,
-				4FDB6CD32C189F78003A978D /* UITableCustomCellViewController.swift */,
-				4FDB6CD42C189F78003A978D /* UITableCustomCellViewController.xib */,
+				4F766C552D362F4E00FCFAA5 /* TestDifferenceKitViewController.swift */,
 				4F7B91962C85B520007BC6C5 /* ChatVo.swift */,
-				4F2CD7B32C9536A5004741A3 /* UIDiffTableViewController.swift */,
-				4F2CD7B52C953863004741A3 /* MessageVo.swift */,
+				4F766C512D354F6A00FCFAA5 /* Diffable.swift */,
 				4F2CD7C22C9ABB44004741A3 /* MessageViewCell.swift */,
+				4F2CD7B52C953863004741A3 /* MessageVo.swift */,
+				4FDB6CC72C161611003A978D /* TableViewCell1.swift */,
+				4F8177592D22900700358594 /* TableViewCell2.swift */,
+				4FDB6CC32C15FBC2003A978D /* TableViewEntryController.swift */,
 				4F8177552D22367500358594 /* TestIGListKitViewController.swift */,
+				4F766C532D360CBC00FCFAA5 /* TestIGListKitViewController2.swift */,
+				4FDB6CCB2C1619AD003A978D /* TestUITableDelegateViewController.swift */,
+				4FDB6CCF2C1896F5003A978D /* TestUiTableIndexViewController.swift */,
+				4FDB6CBF2C15FAAF003A978D /* TestUITableViewController.swift */,
+				4F2CD7B32C9536A5004741A3 /* UIDiffTableViewController.swift */,
+				4FDB6CD32C189F78003A978D /* UITableCustomCellViewController.swift */,
+				4FDB6CC82C161611003A978D /* TableViewCell1.xib */,
+				4F8177572D22900200358594 /* TableViewCell2.xib */,
+				4FDB6CC42C15FBC2003A978D /* TableViewController.xib */,
+				4FDB6CCC2C1619AD003A978D /* TestUITableDelegateViewController.xib */,
+				4FDB6CD02C1896F5003A978D /* TestUiTableIndexViewController.xib */,
+				4FDB6CC02C15FAAF003A978D /* TestUITableViewController.xib */,
+				4FDB6CD42C189F78003A978D /* UITableCustomCellViewController.xib */,
 			);
 			path = TableView;
 			sourceTree = "<group>";
@@ -815,8 +846,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F766C522D354F6A00FCFAA5 /* Diffable.swift in Sources */,
 				4FE39AE92CE87C0400153BFA /* FileOptViewController.swift in Sources */,
 				4FDB6CD92C19B949003A978D /* TestCoroutineViewController.swift in Sources */,
+				4F6EAE642D320DAF00249E78 /* PerformanceViewController.swift in Sources */,
 				4FDB6CD52C189F78003A978D /* UITableCustomCellViewController.swift in Sources */,
 				4FDB6D112C1DFE35003A978D /* UIScrollViewController2.swift in Sources */,
 				4FDB6D382C25E0A1003A978D /* StackViewController1.swift in Sources */,
@@ -828,6 +861,7 @@
 				4F2CD7B62C953863004741A3 /* MessageVo.swift in Sources */,
 				4FA3EC342C5BDBF7001674C5 /* FlutterMainViewController.swift in Sources */,
 				4F6E7EE32CE76A5700EA7D20 /* OtherMainViewController.swift in Sources */,
+				4F6EAE672D320EB200249E78 /* StringUtils.swift in Sources */,
 				4FDB6CC92C161611003A978D /* TableViewCell1.swift in Sources */,
 				4FDB6CD12C1896F5003A978D /* TestUiTableIndexViewController.swift in Sources */,
 				4FDB6D442C26DD81003A978D /* SnapKitViewController2.swift in Sources */,
@@ -836,7 +870,7 @@
 				4FDB6CCD2C1619AD003A978D /* TestUITableDelegateViewController.swift in Sources */,
 				4F6E7EEA2CEAD85E00EA7D20 /* WebViewPageViewController.swift in Sources */,
 				4FDB6CBD2C14E933003A978D /* CustomNavigationViewController.swift in Sources */,
-				4FDB6CC52C15FBC2003A978D /* TableViewController.swift in Sources */,
+				4FDB6CC52C15FBC2003A978D /* TableViewEntryController.swift in Sources */,
 				4FA347192C09D50300FB8C99 /* AppDelegate.swift in Sources */,
 				4FDB6C9A2C137555003A978D /* StudentModel.swift in Sources */,
 				4F6E7EE52CE76BAF00EA7D20 /* ImageOptViewController.swift in Sources */,
@@ -851,10 +885,12 @@
 				4F2CD7B42C9536A5004741A3 /* UIDiffTableViewController.swift in Sources */,
 				4F2CD7C32C9ABB44004741A3 /* MessageViewCell.swift in Sources */,
 				4F7B91952C837A25007BC6C5 /* BaseViewController.swift in Sources */,
+				4F766C562D362F4E00FCFAA5 /* TestDifferenceKitViewController.swift in Sources */,
 				4FDB6C8B2C105C27003A978D /* ViewController.swift in Sources */,
 				4FDB6CB42C14C252003A978D /* ModalViewController.swift in Sources */,
 				4FDB6CFF2C1CAD14003A978D /* MainUIViewController.swift in Sources */,
 				4FDB6CDC2C19BA32003A978D /* TestCoroutine1.swift in Sources */,
+				4F766C542D360CBC00FCFAA5 /* TestIGListKitViewController2.swift in Sources */,
 				4FDB6CA02C13782C003A978D /* StudentModelDao.swift in Sources */,
 				4FDC639B2CB0570E0031A614 /* CALayerBasicViewController.swift in Sources */,
 				4FDB6CB62C14C314003A978D /* DesModalViewController.swift in Sources */,

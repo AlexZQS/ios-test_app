@@ -9,7 +9,7 @@
 import Foundation
 import WCDBSwift
 
-final class StudentModel: TableCodable {
+final class StudentModel: TableCodable,Hashable {
     var id: Int?
     var userId: String = ""
     var name: String? = nil
@@ -29,6 +29,14 @@ final class StudentModel: TableCodable {
         }
     }
     
-    var isAutoIncrement: Bool = true // 用于定义是否使用自增的方式插入
+    var isAutoIncrement: Bool = false // 用于定义是否使用自增的方式插入
     var lastInsertedRowID: Int64 = 0 // 用于获取自增插入后的主键值
+    
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(userId)
+    }
+    
+    public static func == (lhs: StudentModel, rhs: StudentModel) -> Bool {
+        return lhs.hashValue == rhs.hashValue
+    }
 }

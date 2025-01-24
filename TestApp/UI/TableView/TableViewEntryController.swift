@@ -43,6 +43,15 @@ class TableViewController: BaseViewController {
         self.navigationController?.pushViewController(controller, animated: true)
     }
     
+    @IBAction func Glist2(_ sender: Any) {
+        let controller = TestIGListKitViewController2()
+        self.navigationController?.pushViewController(controller, animated: true)
+    }
+    
+    @IBAction func DifferenceKit(_ sender: Any) {
+        let controller = TestDifferenceKitViewController()
+        self.navigationController?.pushViewController(controller, animated: true)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "TableView"

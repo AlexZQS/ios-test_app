@@ -239,7 +239,7 @@ class UITableCustomCellViewController: BaseViewController {
             model1.sort >= model2.sort
         }
 //        self.datas = newDataArray
-        applySnapshot(datas: newDataArray,animatingDifferences: false)
+        applySnapshot(datas: newDataArray,animatingDifferences: true)
 //        updateSnapshot(datas: mDatas, animatingDifferences: false)
     }
     

@@ -45,6 +45,10 @@ class MainViewController: BaseViewController {
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
+    @IBAction func performancePage(_ sender: Any) {
+        let vc = PerformanceViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 //        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return  }

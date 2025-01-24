@@ -36,7 +36,6 @@ class TestDBViewController: BaseViewController {
         
 //        self.navigationItem.rightBarButtonItems = [UIBarButtonItem(title: "添加数据", style: UIBarButtonItem.Style.plain, target: self, action: #selector(rightClick)),UIBarButtonItem(title: "添加数据", style: UIBarButtonItem.Style.plain, target: self, action: #selector(rightClick))]
         let popUpButton = UIButton.init(type: .system)
-//        popUpButton.frame = CGRect.init(x: 100, y: 100, width: 100, height: 100)
         popUpButton.setTitle("Edit", for: .normal)
         popUpButton.showsMenuAsPrimaryAction = true
         popUpButton.menu = UIMenu(children: [
@@ -55,6 +54,16 @@ class TestDBViewController: BaseViewController {
             UIAction(title: "添加一条数据", handler: { action in
                 Task {
                     await self.addOneData()
+                }
+            }),
+            UIAction(title: "添加1000 条数据", handler: { action in
+                Task {
+                    await self.addLargeDatas(isTransaction: false)
+                }
+            }),
+            UIAction(title: "添加1000 条数据(事务)", handler: { action in
+                Task {
+                    await self.addLargeDatas(isTransaction: true)
                 }
             }),
             UIAction(title: "退出", handler: {action in
@@ -123,6 +132,7 @@ class TestDBViewController: BaseViewController {
             }
         }
     }
+    
     
     func addOneData() async {
         let stududent = StudentModel()
@@ -222,11 +232,11 @@ class TestDBViewController: BaseViewController {
             
             
             do {
-                let results = try await StudentModelDao.insertUsers1(userDB: dataBase, users: datas)
+                let results = try await StudentModelDao.insertUsers3(userDB: dataBase, users: datas)
 //                try await StudentModelDao.insertUsers2(queue: self.queue, users: datas)
-                for data in results {
-                    print("userId = \(data.userId) name =\(data.name) lastInsertedRowID = \(data.lastInsertedRowID) id = \(data.id)")
-                }
+//                for data in results {
+//                    print("userId = \(data.userId) name =\(data.name) lastInsertedRowID = \(data.lastInsertedRowID) id = \(data.id)")
+//                }
                 let users = try await StudentModelDao.queryUsers(userDB: dataBase)
                 
                 DispatchQueue.main.async {
@@ -241,10 +251,69 @@ class TestDBViewController: BaseViewController {
                     print("检测到错误了\(error) ")
                 }
             }
-            
-            
-            
         }
+    }
+    
+    func addLargeDatas(isTransaction:Bool) async {
+        var datas = Array<StudentModel>()
+        let stududent = StudentModel()
+        stududent.userId = "1"
+        stududent.name = "李四"
+        datas.append(stududent)
+        
+        let stududent1 = StudentModel()
+        stududent1.userId = "2"
+        stududent1.name = "王五"
+        datas.append(stududent1)
+        
+        let stududent2 = StudentModel()
+        stududent2.userId = "3"
+        stududent2.name = "老李"
+        datas.append(stududent2)
+        
+        let stududent3 = StudentModel()
+        stududent3.userId = "4"
+        stududent3.name = "李飞1111"
+        datas.append(stududent3)
+        
+        for i in 0..<5000 {
+            let stududent = StudentModel()
+            stududent.userId = String(i)
+            stududent.name = StringUtils.generateRandomChineseString(count: 3)
+            datas.append(stududent)
+        }
+        do {
+            let startTime = CFAbsoluteTimeGetCurrent()
+            if isTransaction {
+                try await StudentModelDao.insertUsers4(userDB: dataBase, users: datas)
+            } else {
+                let uids = datas.map { model in
+                    model.userId
+                }
+                let existDatas = try await StudentModelDao.queryUsers(userDB: dataBase, userIds: uids)
+                let insertDatas = datas.filter { model in
+                    !existDatas.contains(model)
+                }
+                try await StudentModelDao.insertUsers3(userDB: dataBase, users: insertDatas)
+            }
+            let endTime = CFAbsoluteTimeGetCurrent()
+            print("\(#function) 是否用了事务: \(isTransaction) 耗时: \(endTime - startTime) 秒")
+            
+            let users = try await StudentModelDao.queryUsers(userDB: dataBase)
+            
+            DispatchQueue.main.async {
+                self.models.removeAll()
+                self.models.append(contentsOf: users)
+                self.tableView.reloadData()
+            }
+        } catch {
+            if let dbError = error as? WCDBError, dbError.extendedCode == WCDBError.ExtendCode.ConstraintPrimaryKey {
+                print("检测到冲突了\(error) ")
+            } else {
+                print("检测到错误了\(error) ")
+            }
+        }
+            
     }
     
     func queryIds() {

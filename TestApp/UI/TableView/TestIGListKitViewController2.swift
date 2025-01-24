@@ -1,4 +1,5 @@
-//// 
+
+////
 //  TestIGListKitViewController.swift
 //  TestApp
 //  Created by ___ORGANIZATIONNAME___ on 2024/12/30
@@ -9,42 +10,30 @@
 import UIKit
 import IGListKit
 
-
-
-class Person: ListDiffable {
-    func diffIdentifier() -> any NSObjectProtocol {
-        return diffIdentifierId as NSObjectProtocol
-    }
-    
-    
-    var diffIdentifierId: String
+struct Person2: Diffable {
+    var diffIdentifier: String
     let name: String
     let content: String
     let time: String
     let sort: Int
     
-    init (diffIdentifierId: String, name: String, content: String, time: String,sort: Int) {
-        self.diffIdentifierId = diffIdentifierId
+    init (diffIdentifier: String, name: String, content: String, time: String,sort: Int) {
+        self.diffIdentifier = diffIdentifier
         self.name = name
         self.content = content
         self.time = time
         self.sort = sort
     }
     
-    func isEqual(toDiffableObject object: ListDiffable?) -> Bool {
-        guard let object = object as? Person else { return false }
-        return content == object.content && diffIdentifierId == object.diffIdentifierId && name == object.name && time == object.time
+    
+    static func == (lhs: Person2, rhs: Person2) -> Bool {
+        return lhs.diffIdentifier == rhs.diffIdentifier && lhs.name == rhs.name && lhs.content == rhs.content
     }
-    
-    
-//    static func == (lhs: Person, rhs: Person) -> Bool {
-//        return lhs.diffIdentifier == rhs.diffIdentifier && lhs.name == rhs.name && lhs.content == rhs.content
-//    }
 
 
 }
 
-class TestIGListKitViewController: BaseViewController {
+class TestIGListKitViewController2: BaseViewController {
     
     lazy var adapter: ListAdapter = {
             return ListAdapter(updater: ListAdapterUpdater(), viewController: self, workingRangeSize: 1)
@@ -58,30 +47,30 @@ class TestIGListKitViewController: BaseViewController {
     }()
     
     let oldPeople = [
-        Person(diffIdentifierId: "1", name: "Kevin",content: "好舒服",time: "2024/11/30",sort:1),
-        Person(diffIdentifierId: "2", name: "Mike",content: "哈哈",time: "2024/10/30",sort:2),
-        Person(diffIdentifierId: "3", name: "Ann",content: "今天吃什么",time: "2024/9/30",sort:3),
-        Person(diffIdentifierId: "4", name: "Jane",content: "不是这个意思",time: "2024/8/30",sort:4),
-        Person(diffIdentifierId: "5", name: "Philip",content: "衣服多少钱",time: "2024/7/30",sort:5),
-        Person(diffIdentifierId: "6", name: "Mona",content: "11111",time: "2024/6/30",sort:6),
-        Person(diffIdentifierId: "7", name: "Tami",content: "下班啊",time: "2024/5/30",sort:7),
-        Person(diffIdentifierId: "8", name: "Jesse",content: "起床",time: "2024/4/30",sort:8),
-        Person(diffIdentifierId: "9", name: "Jaed",content: "水电费娇娥",time: "2024/3/30",sort:9)
+        Person2(diffIdentifier: "1", name: "Kevin",content: "好舒服",time: "2024/11/30",sort:1),
+        Person2(diffIdentifier: "2", name: "Mike",content: "哈哈",time: "2024/10/30",sort:2),
+        Person2(diffIdentifier: "3", name: "Ann",content: "今天吃什么",time: "2024/9/30",sort:3),
+        Person2(diffIdentifier: "4", name: "Jane",content: "不是这个意思",time: "2024/8/30",sort:4),
+        Person2(diffIdentifier: "5", name: "Philip",content: "衣服多少钱",time: "2024/7/30",sort:5),
+        Person2(diffIdentifier: "6", name: "Mona",content: "11111",time: "2024/6/30",sort:6),
+        Person2(diffIdentifier: "7", name: "Tami",content: "下班啊",time: "2024/5/30",sort:7),
+        Person2(diffIdentifier: "8", name: "Jesse",content: "起床",time: "2024/4/30",sort:8),
+        Person2(diffIdentifier: "9", name: "Jaed",content: "水电费娇娥",time: "2024/3/30",sort:9)
         ]
     
     let newPeople = [
-        Person(diffIdentifierId: "2", name: "Mike",content: "哈哈1",time: "2025/10/30",sort: 1),
-        Person(diffIdentifierId: "10", name: "Marne",content: "今天周几",time: "2025/10/29",sort: 2),
-        Person(diffIdentifierId: "5", name: "Philip",content: "不知道啊",time: "2025/10/28",sort: 3),
-        Person(diffIdentifierId: "1", name: "Kevin",content: "api地址是多少",time: "2025/10/27",sort: 4),
-        Person(diffIdentifierId: "3", name: "Ryan",content: "今天收入100",time: "2025/10/26",sort: 5),
-        Person(diffIdentifierId: "8", name: "Jesse",content: "来一包中华",time: "2025/10/25",sort: 6),
-        Person(diffIdentifierId: "7", name: "Tami",content: "mbp 16",time: "2025/10/24",sort: 7),
-        Person(diffIdentifierId: "4", name: "Jane",content: "来来来",time: "2025/10/23",sort: 8),
-        Person(diffIdentifierId: "9", name: "Chen",content: "滚滚滚",time: "2025/10/22",sort: 9)
+        Person2(diffIdentifier: "2", name: "Mike",content: "哈哈1",time: "2025/10/30",sort: 1),
+        Person2(diffIdentifier: "10", name: "Marne",content: "今天周几",time: "2025/10/29",sort: 2),
+        Person2(diffIdentifier: "5", name: "Philip",content: "不知道啊",time: "2025/10/28",sort: 3),
+        Person2(diffIdentifier: "1", name: "Kevin",content: "api地址是多少",time: "2025/10/27",sort: 4),
+        Person2(diffIdentifier: "3", name: "Ryan",content: "今天收入100",time: "2025/10/26",sort: 5),
+        Person2(diffIdentifier: "8", name: "Jesse",content: "来一包中华",time: "2025/10/25",sort: 6),
+        Person2(diffIdentifier: "7", name: "Tami",content: "mbp 16",time: "2025/10/24",sort: 7),
+        Person2(diffIdentifier: "4", name: "Jane",content: "来来来",time: "2025/10/23",sort: 8),
+        Person2(diffIdentifier: "9", name: "Chen",content: "滚滚滚",time: "2025/10/22",sort: 9)
     ]
     
-    lazy var people: [Person] = {
+    lazy var people: [Person2] = {
         return self.oldPeople
     }()
     
@@ -130,11 +119,11 @@ class TestIGListKitViewController: BaseViewController {
 //        var toDiff = to.map { ListDiffableBox(value: $0, identifier: String($0.pk)) }
         people = to
         
-        let result = ListDiffPaths(fromSection: 0, toSection: 0, oldArray: fromDiff, newArray: to, option: .equality)
+        let result = DiffUtility.diff(originalItems: fromDiff, newItems: to)
         
         tableView.beginUpdates()
 //        tableView.reloadRows(at: result.updates, with: .none)
-        tableView.deleteRows(at: result.deletes, with: .automatic)
+        tableView.deleteRows(at: result.deletions, with: .automatic)
         tableView.insertRows(at: result.inserts, with: .automatic)
         result.moves.forEach { tableView.moveRow(at: $0.from, to: $0.to) }
         tableView.endUpdates()
@@ -145,24 +134,24 @@ class TestIGListKitViewController: BaseViewController {
         
         print("\(#file) 开始移动了 ")
         var newPeople = [
-            Person(diffIdentifierId: "2", name: "Mike",content: "哈哈1",time: "2025/10/30",sort: 3),
-            Person(diffIdentifierId: "10", name: "Marne",content: "今天周几",time: "2025/10/29",sort: 4),
-            Person(diffIdentifierId: "5", name: "Philip",content: "不知道啊",time: "2025/10/28",sort: 1),
-            Person(diffIdentifierId: "1", name: "Kevin",content: "api地址是多少",time: "2025/10/27",sort: 2),
-            Person(diffIdentifierId: "3", name: "Ryan",content: "今天收入100",time: "2025/10/26",sort: 5),
-            Person(diffIdentifierId: "8", name: "Jesse",content: "来一包中华",time: "2025/10/25",sort: 6),
-            Person(diffIdentifierId: "7", name: "Tami",content: "mbp 16",time: "2025/10/24",sort: 7),
-            Person(diffIdentifierId: "4", name: "Jane",content: "来来来",time: "2025/10/23",sort: 8),
-            Person(diffIdentifierId: "9", name: "Chen",content: "滚滚滚",time: "2025/10/22",sort: 9)
+            Person2(diffIdentifier: "2", name: "Mike",content: "哈哈1",time: "2025/10/30",sort: 3),
+            Person2(diffIdentifier: "10", name: "Marne",content: "今天周几",time: "2025/10/29",sort: 4),
+            Person2(diffIdentifier: "5", name: "Philip",content: "不知道啊",time: "2025/10/28",sort: 1),
+            Person2(diffIdentifier: "1", name: "Kevin",content: "api地址是多少",time: "2025/10/27",sort: 2),
+            Person2(diffIdentifier: "3", name: "Ryan",content: "今天收入100",time: "2025/10/26",sort: 5),
+            Person2(diffIdentifier: "8", name: "Jesse",content: "来一包中华",time: "2025/10/25",sort: 6),
+            Person2(diffIdentifier: "7", name: "Tami",content: "mbp 16",time: "2025/10/24",sort: 7),
+            Person2(diffIdentifier: "4", name: "Jane",content: "来来来",time: "2025/10/23",sort: 8),
+            Person2(diffIdentifier: "9", name: "Chen",content: "滚滚滚",time: "2025/10/22",sort: 9)
         ]
         newPeople.sort { model1, model2 in
             model1.sort <= model2.sort
         }
         people = newPeople
-        let result = ListDiffPaths(fromSection: 0, toSection: 0, oldArray: from, newArray: newPeople, option: .equality)
+        let result = DiffUtility.diff(originalItems: from, newItems: newPeople)
 
         tableView.beginUpdates()
-        tableView.deleteRows(at: result.deletes, with: .fade)
+        tableView.deleteRows(at: result.deletions, with: .fade)
         tableView.insertRows(at: result.inserts, with: .fade)
         result.moves.forEach { tableView.moveRow(at: $0.from, to: $0.to) }
         tableView.endUpdates()
@@ -181,7 +170,7 @@ class TestIGListKitViewController: BaseViewController {
 
 }
 
-extension TestIGListKitViewController: UITableViewDataSource {
+extension TestIGListKitViewController2: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return people.count
     }

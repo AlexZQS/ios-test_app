@@ -16,6 +16,7 @@ target 'TestApp' do
   pod 'TZImagePickerController'
   pod 'Alamofire', '5.9.1'
   pod 'IGListKit', '~> 5.0.0'
+  pod 'DifferenceKit', '~> 1.3.0'
 #  install_all_flutter_pods(flutter_application_path)
 
   target 'TestAppTests' do

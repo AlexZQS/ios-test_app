@@ -42,6 +42,15 @@ class StudentModelDao {
         return result
     }
     
+    static func queryUsers(userDB: Database?,userIds: [String]) async throws -> [StudentModel] {
+        guard let db = userDB else {
+            return []
+        }
+        let condition: Condition = StudentModel.CodingKeys.userId.in(userIds)
+        let result: [StudentModel] = try db.getObjects(fromTable: table_name,where: condition)
+        return result
+    }
+    
     static func queryUser(userDB: Database?,userId: String) async throws -> StudentModel? {
         guard let db = userDB else {
             return nil
@@ -121,10 +130,27 @@ class StudentModelDao {
             return
         }
         // 自增长和ignore 会导致崩溃
-        //        try db.insertOrIgnore(users, intoTable: table_name)
+            try db.insertOrIgnore(users, intoTable: table_name)
         
     }
     
+    static func insertUsers4(userDB: Database?,users: [StudentModel]) async throws {
+        guard let db = userDB else {
+            return
+        }
+        
+        try db.run(transaction: { handle in
+            for user in users {
+                do {
+                    try db.insert(user, intoTable: table_name)
+                } catch {
+                    print("\(#function) error = \(error)")
+                }
+            }
+        })
+        
+    }
+
     
     static func insertUsers2(queue: UUQueue<Database>?,users: [StudentModel]) async throws {
         guard let mQueue = queue else {
