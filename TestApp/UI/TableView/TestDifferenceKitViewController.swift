@@ -141,21 +141,30 @@ class TestDifferenceKitViewController: BaseViewController {
         let source = people
         
         print("\(#file) 开始移动了 ")
+        
         var target = [
-            
-            Person3(id: 1, name: "Kevin",content: "api地址是多少",time: "2025/10/27",sort: 2),
-            Person3(id: 2, name: "Mike",content: "哈哈1",time: "2025/10/30",sort: 3),
-            Person3(id: 3, name: "Ryan",content: "今天收入100",time: "2025/10/26",sort: 5),
-            Person3(id: 4, name: "Jane",content: "来来来",time: "2025/10/23",sort: 8),
-            Person3(id: 5, name: "Philip",content: "不知道啊",time: "2025/10/28",sort: 1),
+            Person3(id: 1, name: "Kevin",content: "好舒服",time: "2024/11/30",sort:4),
+            Person3(id: 2, name: "Mike",content: "哈哈",time: "2024/10/30",sort:1),
+            Person3(id: 3, name: "Ann",content: "今天吃什么",time: "2024/9/30",sort:2),
+            Person3(id: 4, name: "Jane",content: "不是这个意思",time: "2024/8/30",sort:3),
+            Person3(id: 5, name: "Philip",content: "衣服多少钱",time: "2024/7/30",sort:5),
             Person3(id: 6, name: "Mona",content: "11111",time: "2024/6/30",sort:6),
-            Person3(id: 7, name: "Tami",content: "mbp 16",time: "2025/10/24",sort: 7),
-            Person3(id: 8, name: "Jesse",content: "来一包中华",time: "2025/10/25",sort: 6),
-            Person3(id: 9, name: "Jaed",content: "水电费娇娥",time: "2025/10/22",sort: 9),
-            Person3(id: 10, name: "Marne",content: "今天周几",time: "2025/10/29",sort: 4),
-            Person3(id: 11, name: "Marne1",content: "今天周几",time: "2025/10/29",sort: 13),
-            Person3(id: 12, name: "Marne2",content: "今天周几",time: "2025/10/29",sort: 12),
-            Person3(id: 13, name: "Marne3",content: "今天周几",time: "2025/10/29",sort: 11),
+            Person3(id: 7, name: "Tami",content: "下班啊",time: "2024/5/30",sort:7),
+            Person3(id: 8, name: "Jesse",content: "起床",time: "2024/4/30",sort:8),
+            Person3(id: 9, name: "Jaed",content: "水电费娇娥",time: "2024/3/30",sort:9)
+//            Person3(id: 1, name: "Kevin",content: "api地址是多少",time: "2025/10/27",sort: 2),
+//            Person3(id: 2, name: "Mike",content: "哈哈1",time: "2025/10/30",sort: 3),
+//            Person3(id: 3, name: "Ryan",content: "今天收入100",time: "2025/10/26",sort: 5),
+//            Person3(id: 4, name: "Jane",content: "来来来",time: "2025/10/23",sort: 8),
+//            Person3(id: 5, name: "Philip",content: "不知道啊",time: "2025/10/28",sort: 1),
+//            Person3(id: 6, name: "Mona",content: "11111",time: "2024/6/30",sort:6),
+//            Person3(id: 7, name: "Tami",content: "mbp 16",time: "2025/10/24",sort: 7),
+//            Person3(id: 8, name: "Jesse",content: "来一包中华",time: "2025/10/25",sort: 6),
+//            Person3(id: 9, name: "Jaed",content: "水电费娇娥",time: "2025/10/22",sort: 9),
+//            Person3(id: 10, name: "Marne",content: "今天周几",time: "2025/10/29",sort: 4),
+//            Person3(id: 11, name: "Marne1",content: "今天周几",time: "2025/10/29",sort: 13),
+//            Person3(id: 12, name: "Marne2",content: "今天周几",time: "2025/10/29",sort: 12),
+//            Person3(id: 13, name: "Marne3",content: "今天周几",time: "2025/10/29",sort: 11),
         ]
         target.sort { model1, model2 in
             model1.sort <= model2.sort

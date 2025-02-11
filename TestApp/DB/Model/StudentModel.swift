@@ -29,6 +29,20 @@ final class StudentModel: TableCodable,Hashable {
         }
     }
     
+    init() {
+        
+    }
+    
+    init(id: Int? = nil) {
+        self.id = id
+    }
+    
+    init(id: Int? = nil, userId: String, name: String? = nil) {
+        self.id = id
+        self.userId = userId
+        self.name = name
+    }
+    
     var isAutoIncrement: Bool = false // 用于定义是否使用自增的方式插入
     var lastInsertedRowID: Int64 = 0 // 用于获取自增插入后的主键值
     
